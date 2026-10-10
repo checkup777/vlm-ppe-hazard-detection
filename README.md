@@ -63,3 +63,7 @@ The two false negatives are Unsafe scenes the model called Safe. In both, the mo
 - The evaluation images are not included, so the results cannot be reproduced exactly; the pipeline can be run on your own images.
 - Tested on one machine (RTX 3050, 4GB).
 - The pinned wheels are specific to Python 3.14 and CUDA 12.6.
+
+## Author
+
+Arqia M, Universitas Gadjah Mada
