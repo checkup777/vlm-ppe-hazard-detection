@@ -1,0 +1,13 @@
+.env
+*.env
+*.whl
+*.pt
+*.pth
+*.bin
+*.safetensors
+models/
+weights/
+__pycache__/
+.ipynb_checkpoints/
+*.pdf
+test_images/
