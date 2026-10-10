@@ -1,0 +1,23 @@
+services:
+  vlm-safety-inspector:
+    build: .
+    container_name: vlm-safety-inspector
+    ports:
+      - "7860:7860"
+    volumes:
+      # Directory with the Qwen2-VL-2B-Instruct weights (not included in this repo).
+      # Set MODEL_DIR to your local path, or place the weights in ./models/qwen2-vl-2b.
+      - ${MODEL_DIR:-./models/qwen2-vl-2b}:/models/qwen2-vl-2b:ro
+    environment:
+      - MODEL_PATH=/models/qwen2-vl-2b
+      - NVIDIA_VISIBLE_DEVICES=all
+      - CUBLAS_WORKSPACE_CONFIG=:4096:8
+      - PYTHONHASHSEED=0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
